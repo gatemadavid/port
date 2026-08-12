@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Gatema</title>
+
+  <!-- Tailwind CSS (CDN build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#1f6f5c',
+              dark: '#123f34',
+              light: '#e7f3ef',
+            },
+            ink: '#12201c',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='styles.css') }}">
+</head>
+
+<body class="bg-white text-ink font-sans antialiased">
+
+  <!-- ========== NAVBAR ========== -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-20">
+      <a href="#home" class="flex items-center gap-2 text-xl font-extrabold tracking-tight">
+        <span class="w-9 h-9 rounded-full bg-brand flex items-center justify-center text-white text-sm">D</span>
+        David Gatema
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-ink/70">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#labs" class="nav-link">Labs</a>
+
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="menuBtn"
+          class="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-ink/10">
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu"
+      class="hidden md:hidden bg-white border-t border-ink/10 px-6 py-4 space-y-4 text-sm font-medium">
+      <a href="#home" class="block nav-link">Home</a>
+      <a href="#about" class="block nav-link">About</a>
+      <a href="#labs" class="block nav-link">Labs</a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section id="home" class="relative pt-40 pb-24 overflow-hidden bg-brand-light">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-center">
+        <div data-reveal>
+          <p
+            class="inline-flex items-center gap-2 text-brand font-semibold text-sm bg-white rounded-full px-4 py-1.5 shadow-sm mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand"></span>
+            Offensive Security & Threat Defense
+          </p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.08] tracking-tight mb-6">
+            Securing systems before attackers find the gap.
+          </h1>
+          <p class="text-lg text-ink/70 max-w-lg mb-8">
+            I help teams identify vulnerabilities, harden infrastructure, and respond
+            to threats before they become incidents.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#labs"
+              class="inline-flex items-center rounded-full bg-brand text-white font-semibold px-7 py-3.5 hover:bg-brand-dark transition-colors">
+              View My Work
+            </a>
+            <a href=""
+              class="inline-flex items-center rounded-full border border-ink/15 font-semibold px-7 py-3.5 hover:bg-white transition-colors">
+              Get In Touch
+            </a>
+          </div>
+        </div>
+
+        <div class="relative" data-reveal>
+          <div
+            class="aspect-square w-full max-w-md mx-auto rounded-full bg-gradient-to-br from-brand to-brand-dark shadow-2xl overflow-hidden relative">
+            <img src="{{ url_for('media', path='me-hero.jpg') }}" alt="David Gatema" class="w-full h-full object-cover">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="grid grid-cols-2 gap-4" data-reveal>
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80"
+            class="rounded-2xl w-full h-64 object-cover mt-8" alt="Security operations">
+          <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&w=500&q=80"
+            class="rounded-2xl w-full h-64 object-cover" alt="Terminal and code">
+        </div>
+        <div data-reveal>
+          <p class="text-brand font-semibold text-sm uppercase tracking-wide mb-3">About Me</p>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-5">
+            A practitioner's approach to modern security
+          </h2>
+          <p class="text-ink/70 mb-6 leading-relaxed">
+            I work across offensive and defensive security &mdash; from vulnerability
+            assessments and penetration testing to hardening infrastructure and
+            responding when things go wrong. My focus is practical risk reduction,
+            not just checkbox compliance.
+          </p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <span class="check">&check;</span> Penetration testing & vulnerability research
+            </li>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <span class="check">&check;</span> Security hardening & infrastructure audits
+            </li>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <span class="check">&check;</span> Incident response & threat monitoring
+            </li>
+            <li class="flex items-center gap-3 text-sm font-medium">
+              <span class="check">&check;</span> Identity and Access Management on Microsoft Azure AD
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICE BADGES ========== -->
+    <section id="services" class="py-16 bg-brand-light">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="flex flex-wrap justify-center gap-4">
+          <span class="badge">Application Security</span>
+          <span class="badge">Penetration Testing</span>
+          <span class="badge">Incident Response</span>
+          <span class="badge">Vulnerability Assessments</span>
+          <span class="badge">Security Audits</span>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICE DETAILS ========== -->
+    <section class="py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="max-w-2xl mx-auto text-center mb-16" data-reveal>
+          <p class="text-brand font-semibold text-sm uppercase tracking-wide mb-3">What I Offer</p>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Security work built around three core pillars
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="service-card" data-reveal>
+            <span class="service-num">01</span>
+            <h3 class="text-xl font-bold mt-4 mb-3">Vulnerability Assessment</h3>
+            <p class="text-ink/65 text-sm leading-relaxed">
+              Systematic testing of applications and infrastructure to surface
+              weaknesses before an attacker does.
+            </p>
+          </div>
+          <div class="service-card" data-reveal>
+            <span class="service-num">02</span>
+            <h3 class="text-xl font-bold mt-4 mb-3">Security Hardening</h3>
+            <p class="text-ink/65 text-sm leading-relaxed">
+              Practical remediation and configuration hardening across networks,
+              cloud environments, and endpoints.
+            </p>
+          </div>
+          <div class="service-card" data-reveal>
+            <span class="service-num">03</span>
+            <h3 class="text-xl font-bold mt-4 mb-3">Incident Response</h3>
+            <p class="text-ink/65 text-sm leading-relaxed">
+              Rapid investigation and containment when something does go wrong,
+              backed by clear post-incident reporting.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== Labs ========== -->
+    <section id="labs" class="py-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+        <div class="flex flex-wrap items-end justify-between gap-6 mb-14" data-reveal>
+          <div>
+            <p class="text-brand font-semibold text-sm uppercase tracking-wide mb-3">Labs</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Write-ups, research & CTF notes</h2>
+          </div>
+
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80" alt="">
+            <div class="p-5">
+              <p class="text-xs text-brand font-semibold mb-2">PENTESTING</p>
+              <h3 class="font-bold mb-3 leading-snug">Notes from a recent web application penetration test</h3>
+              <a href="#" class="text-sm font-semibold text-ink/70 hover:text-brand">Learn More &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80"
+              alt="">
+            <div class="p-5">
+              <p class="text-xs text-brand font-semibold mb-2">CTF</p>
+              <h3 class="font-bold mb-3 leading-snug">Walkthrough: solving a binary exploitation challenge</h3>
+              <a href="#" class="text-sm font-semibold text-ink/70 hover:text-brand">Learn More &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=500&q=80" alt="">
+            <div class="p-5">
+              <p class="text-xs text-brand font-semibold mb-2">NETWORK SECURITY</p>
+              <h3 class="font-bold mb-3 leading-snug">Hardening a home lab network against common attacks</h3>
+              <a href="#" class="text-sm font-semibold text-ink/70 hover:text-brand">Learn More &rarr;</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&w=500&q=80" alt="">
+            <div class="p-5">
+              <p class="text-xs text-brand font-semibold mb-2">INCIDENT RESPONSE</p>
+              <h3 class="font-bold mb-3 leading-snug">Building a lightweight incident response playbook</h3>
+              <a href="#" class="text-sm font-semibold text-ink/70 hover:text-brand">Learn More &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+
+    <footer class="bg-ink text-white/70 pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <div>
+          <p class="text-white font-semibold mb-4">Navigate</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#home" class="hover:text-white">Home</a></li>
+            <li><a href="#about" class="hover:text-white">About</a></li>
+
+            <li><a href="#blog" class="hover:text-white">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-white font-semibold mb-4">Contact</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:hello@davidgatema.dev" class="hover:text-white">hello@davidgatema.dev</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-white font-semibold mb-4">Follow</p>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white">Instagram</a></li>
+            <li><a href="#" class="hover:text-white">LinkedIn</a></li>
+            <li><a href="#" class="hover:text-white">Twitter / X</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-6 lg:px-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
+        <p>&copy; <span id="year"></span> David Gatema.</p>
+
+      </div>
+    </footer>
+  </main>
+
+  <!-- back to top -->
+  <button id="toTop"
+    class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-brand text-white shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+      stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+
+</html>
